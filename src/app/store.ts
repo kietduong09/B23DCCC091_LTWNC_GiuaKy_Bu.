@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
 
 export type RootState = ReturnType<typeof rootReducer>;
 
-// Dùng hàm tạo store để test có thể tạo store mới cho mỗi test case.
+
 export function createAppStore(preloadedState?: Partial<RootState>) {
   return configureStore({
     reducer: rootReducer,

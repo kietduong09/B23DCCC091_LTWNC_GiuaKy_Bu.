@@ -19,7 +19,7 @@ function getInitialTheme(): Theme {
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
 
-  // Gắn theme lên thẻ <html> để CSS đổi màu toàn bộ giao diện.
+
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
     localStorage.setItem(STORAGE_KEY, theme);
@@ -29,7 +29,6 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     setTheme((current) => (current === 'light' ? 'dark' : 'light'));
   }, []);
 
-  // useMemo: chỉ tạo object mới khi theme đổi, tránh render lại các component dùng context không cần thiết.
   const value = useMemo<ThemeContextValue>(() => ({ theme, toggleTheme }), [theme, toggleTheme]);
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;

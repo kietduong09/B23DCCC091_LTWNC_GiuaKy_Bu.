@@ -1,4 +1,5 @@
-/* ===== Biến màu: theme sáng (mặc định) và tối ===== */
+
+/* ===== Biến màu: theme sáng và tối ===== */
 :root {
   --color-bg: #f4f5f7;
   --color-surface: #ffffff;
@@ -63,10 +64,12 @@ a {
   color: var(--color-primary);
 }
 
+/* ===== Khung nội dung chính ===== */
 .container {
-  max-width: 960px;
+  width: 100%;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 24px;
 }
 
 .main {
@@ -81,31 +84,44 @@ a {
 }
 
 .header__inner {
-  /* Cách mép 24px trên màn hình nhỏ, tăng dần lên tối đa 64px trên màn hình rộng */
-  padding: 0 clamp(24px, 4vw, 64px);
+  width: 100%;
+  max-width: 1440px;
+  min-height: 68px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 56px);
   display: flex;
   align-items: center;
-  gap: 24px;
-  min-height: 56px;
-  flex-wrap: wrap;
+  gap: 56px;
 }
 
 .header__brand {
-  font-weight: 700;
-  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.header__logo {
+  display: block;
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
 }
 
 .header__nav {
   display: flex;
-  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
   flex: 1;
 }
 
 .header__nav a {
   color: var(--color-muted);
   text-decoration: none;
-  padding: 4px 0;
+  padding: 6px 0;
   border-bottom: 2px solid transparent;
+  transition: color 0.15s ease;
 }
 
 .header__nav a.active {
@@ -113,16 +129,52 @@ a {
   border-bottom-color: var(--color-primary);
 }
 
-/* ===== Nút ===== */
+.header__nav a:hover {
+  color: var(--color-primary);
+}
+
+/* ===== Nút chuyển đổi giao diện sáng/tối ===== */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface);
+  color: var(--color-muted);
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.theme-toggle:hover {
+  color: var(--color-primary);
+  background: var(--color-bg);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ===== Nút chung ===== */
 .button {
   font: inherit;
   font-size: 0.9rem;
   padding: 6px 14px;
-  border-radius: 4px;
+  border-radius: 7px;
   border: 1px solid var(--color-border);
   background: transparent;
   color: var(--color-text);
   cursor: pointer;
+}
+
+.button--outline {
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text);
 }
 
 .button--primary {
@@ -157,7 +209,7 @@ input:focus-visible,
   gap: 12px;
   padding: 10px 14px;
   margin-bottom: 16px;
-  border-radius: 4px;
+  border-radius: 7px;
 }
 
 .notice--success {
@@ -180,14 +232,14 @@ input:focus-visible,
   cursor: pointer;
 }
 
-/* ===== Trạng thái: đang tải, lỗi, rỗng ===== */
+/* ===== Trạng thái tải, lỗi, rỗng ===== */
 .state-message {
   padding: 24px 16px;
   text-align: center;
   color: var(--color-muted);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 .state-message p {
@@ -210,7 +262,7 @@ input:focus-visible,
   margin-bottom: 16px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 .summary__title {
@@ -247,7 +299,7 @@ input:focus-visible,
   font: inherit;
   padding: 8px 10px;
   border: 1px solid var(--color-border);
-  border-radius: 4px;
+  border-radius: 7px;
   background: var(--color-surface);
   color: var(--color-text);
 }
@@ -275,7 +327,7 @@ input:focus-visible,
   color: var(--color-primary-text);
 }
 
-/* ===== Danh sách workshop ===== */
+/* ===== Danh sách Workshop ===== */
 .workshop-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -293,7 +345,7 @@ input:focus-visible,
   padding: 16px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: 6px;
+  border-radius: 10px;
 }
 
 .workshop__head {
@@ -313,7 +365,7 @@ input:focus-visible,
   padding: 2px 10px;
   font-size: 0.8rem;
   border: 1px solid var(--color-border);
-  border-radius: 4px;
+  border-radius: 7px;
   color: var(--color-muted);
 }
 
@@ -349,7 +401,7 @@ input:focus-visible,
 .status {
   padding: 2px 10px;
   font-size: 0.85rem;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .status--open {
@@ -394,21 +446,34 @@ input:focus-visible,
 
 /* ===== Responsive ===== */
 @media (max-width: 720px) {
-  .workshop-list {
-    grid-template-columns: 1fr;
+  .container {
+    padding: 0 16px;
   }
 
   .header__inner {
+    min-height: 64px;
+    padding: 10px 16px;
     gap: 12px;
-    padding: 8px 16px;
+    flex-wrap: wrap;
+  }
+
+  .header__logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .header__brand {
+    flex: 1;
   }
 
   .header__nav {
     order: 3;
     flex-basis: 100%;
+    justify-content: flex-start;
+    gap: 20px;
   }
 
-  .header__brand {
-    flex: 1;
+  .workshop-list {
+    grid-template-columns: 1fr;
   }
 }

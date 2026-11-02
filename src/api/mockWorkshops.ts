@@ -1,9 +1,5 @@
 import type { Workshop } from '../features/workshops/types';
 
-// Dữ liệu mẫu. Có workshop còn nhiều chỗ, workshop chỉ còn 1 chỗ (id 6)
-// và workshop đã hết chỗ (id 4, id 9) để kiểm tra các trường hợp biên.
-// Utility type: Readonly - dữ liệu gốc không bị sửa trực tiếp,
-// mỗi lần gọi API sẽ trả về bản sao.
 export const MOCK_WORKSHOPS: readonly Readonly<Workshop>[] = [
   { id: 1, name: 'React cơ bản cho người mới', speaker: 'Nguyễn Minh Khoa', topic: 'Lập trình', date: '2026-11-10', totalSeats: 20, remainingSeats: 20 },
   { id: 2, name: 'TypeScript trong dự án thực tế', speaker: 'Trần Thu Hà', topic: 'Lập trình', date: '2026-11-12', totalSeats: 30, remainingSeats: 12 },

@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 import type { TopicFilter } from '../workshops/types';
 
-// Zustand quản lý state bộ lọc (không đưa vào Redux).
 interface FilterState {
   searchTerm: string;
   selectedTopic: TopicFilter;
