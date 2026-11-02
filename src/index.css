@@ -81,6 +81,8 @@ a {
 }
 
 .header__inner {
+  /* Cách mép 24px trên màn hình nhỏ, tăng dần lên tối đa 64px trên màn hình rộng */
+  padding: 0 clamp(24px, 4vw, 64px);
   display: flex;
   align-items: center;
   gap: 24px;
@@ -398,8 +400,7 @@ input:focus-visible,
 
   .header__inner {
     gap: 12px;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding: 8px 16px;
   }
 
   .header__nav {

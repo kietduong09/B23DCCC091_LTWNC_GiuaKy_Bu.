@@ -6,7 +6,7 @@ export default function Header() {
 
   return (
     <header className="header">
-      <div className="container header__inner">
+      <div className="header__inner">
         <span className="header__brand">Mini Workshop</span>
         <nav className="header__nav" aria-label="Điều hướng chính">
           <NavLink to="/" end>
